@@ -6,7 +6,7 @@ namespace EasyApplyWebSolution.Infrastructure.DbContext;
 
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 {
-    public ApplicationDbContext(DbContextOptions options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
     }

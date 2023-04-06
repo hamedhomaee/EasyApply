@@ -6,6 +6,7 @@ namespace EasyApplyWebSolution.Controllers;
 public class HomeController : Controller
 {
     [AllowAnonymous]
+    [Route("/")]
     public IActionResult Index()
     {
         return View();

@@ -28,15 +28,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "areaDefault",
-    pattern: "{area:exists}/{action}"
-);
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "/{action=Index}",
-    new { controller = "Home" }
-);
+app.MapControllers();
 
 app.Run();

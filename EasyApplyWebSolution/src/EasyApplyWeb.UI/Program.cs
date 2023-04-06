@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
@@ -18,5 +20,23 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
     .AddRoleStore<RoleStore<ApplicationRole, ApplicationDbContext, Guid>>();
 
 var app = builder.Build();
+
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "areaDefault",
+    pattern: "{area:exists}/{action}"
+);
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "/{action=Index}",
+    new { controller = "Home" }
+);
 
 app.Run();

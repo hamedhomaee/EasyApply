@@ -27,6 +27,11 @@ builder.Services.AddAuthentication()
     {
         facebookOptions.ClientId = builder.Configuration["FacebookAuth:ClientId"]!;
         facebookOptions.ClientSecret = builder.Configuration["FacebookAuth:ClientSecret"]!;
+    })
+    .AddMicrosoftAccount(microsoftOptions =>
+    {
+        microsoftOptions.ClientId = builder.Configuration["MicrosoftAuth:ClientId"]!;
+        microsoftOptions.ClientSecret = builder.Configuration["MicrosoftAuth:ClientSecret"]!;
     });
 
 builder.Services.AddAuthorization(options =>

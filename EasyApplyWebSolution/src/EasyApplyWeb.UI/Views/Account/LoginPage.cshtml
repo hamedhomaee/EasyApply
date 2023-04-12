@@ -1,0 +1,8 @@
+@using Microsoft.AspNetCore.Authentication
+
+<h1>Login Here</h1>
+
+@foreach (AuthenticationScheme item in ViewBag.AuthProviders)
+{
+    <h3>@item.DisplayName</h3>
+}

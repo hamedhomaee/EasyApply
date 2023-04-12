@@ -2,7 +2,6 @@ using EasyApplyWebSolution.Core.Domain.IdentityEntities;
 using EasyApplyWebSolution.Infrastructure.DbContext;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +26,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Events.OnRedirectToLogin = context =>
     {
-        context.Response.Redirect("/account/login;");
+        context.Response.Redirect("/account/login");
         return Task.CompletedTask;
     };
 });

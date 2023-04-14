@@ -16,7 +16,7 @@ public class AccountController : Controller
     
     [AllowAnonymous]
     [Route("account/login")]
-    public async Task<IActionResult> LoginPageAsync()
+    public async Task<IActionResult> LoginAsync()
     {
         ViewBag.AuthProviders = await _signInManager.GetExternalAuthenticationSchemesAsync();
 
